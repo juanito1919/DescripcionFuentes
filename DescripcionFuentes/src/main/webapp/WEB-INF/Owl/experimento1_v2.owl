@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#"
+     xml:base="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:experimento1="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#column -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#column">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#columnDescribed -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#columnDescribed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#distribution -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#foreign -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#foreign">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#inputProgram -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#inputProgram">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#InputProgram"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isContains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isContains">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Table"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isDescribedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isDescribedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Table"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isStructuredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#isStructuredBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Table"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#primaryKey -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#primaryKey">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#primaryTopic -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#primaryTopic">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#CatalogRecord"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#publisher -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#publisher">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#record -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#record">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#CatalogRecord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog_issued -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog_issued">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#accessURL_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#accessURL_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#characterSet_tableStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#characterSet_tableStructure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#character_set -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#character_set">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#columPosition_DelimitedDescrip -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#columPosition_DelimitedDescrip">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#DelimitedColumnDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#consecutiveDelimiter_Delimited -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#consecutiveDelimiter_Delimited">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset_description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset_description">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset_title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#dataset_title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultDecimalSeparator_tableStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultDecimalSeparator_tableStructure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultLenguaje_tableStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultLenguaje_tableStructure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultLocale_tableStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#defaultLocale_tableStructure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#delimiter_Delimited -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#delimiter_Delimited">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_column -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_column"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_dataset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#description_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#firstDataLine -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#firstDataLine">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#format_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#format_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#identifierColumn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#identifierColumn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#input_program -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#input_program">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#issued_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#issued_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#keyword -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#keyword"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#keyword_dataset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#keyword_dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#language -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#language">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#language_dataset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#language_dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#licence -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#licence">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#license_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#license_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#modified_dataset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#modified_dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#modified_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#modified_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#nameColumn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#nameColumn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#name_agent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#name_agent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#namesOnFirstRow_Delimited -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#namesOnFirstRow_Delimited">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#overallRecordCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#overallRecordCount">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recommendedData_columnDescrip -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recommendedData_columnDescrip">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recordLength_FixedRecordLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recordLength_FixedRecordLength">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#FixedRecordLength"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recordNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#recordNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#storageFormat_columnDescrip -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#storageFormat_columnDescrip">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#storage_format -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#storage_format">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#textQualifer_Delimited -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#textQualifer_Delimited">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title_dataset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title_dataset">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title_distribution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#title_distribution">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Agent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Agent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Catalog"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#CatalogRecord -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#CatalogRecord"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnForeign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnForeign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnKey -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnKey">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Column"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Dataset"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Delimited">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#DelimitedColumnDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#DelimitedColumnDescription">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#FixedColumnDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#FixedColumnDescription">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#ColumnDescription"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#FixedRecordLength -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#FixedRecordLength">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#InputProgram -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#InputProgram"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Table -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Table">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableDescription"/>
+    
+
+
+    <!-- http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/adrian/ontologies/2015/9/experimento1#TableStructure"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi -->
+
