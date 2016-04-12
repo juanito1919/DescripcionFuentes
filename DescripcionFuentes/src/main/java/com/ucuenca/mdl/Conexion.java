@@ -5,42 +5,58 @@
  */
 package com.ucuenca.mdl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 /**
  *
- * @author juanj
+ * @author adrian
  */
 public class Conexion {
-
-    /**
-     * Establece y devuelve la conexión con la base de datos.
-     *
-     * @return null si hay problemas.
-     */
-    public static Connection getConection() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/experimento1","root", "heroes");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    
+    private String description;
+    private String keyword;
+    private String language;
+    private String nombre;
+    
+    public Conexion() {
     }
 
-    /**
-     * Cierra la conexión que se le pasa.
-     *
-     * @param conexion
-     */
-    public static void cierraConexion(Connection conexion) {
-        try {
-            conexion.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    
+    public String getDescription() {
+        return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
+    
+    
+    
+    
+    
 }
