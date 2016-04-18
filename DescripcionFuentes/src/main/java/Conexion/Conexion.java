@@ -20,13 +20,10 @@ public class Conexion {
      *
      * @return null si hay problemas.
      */
-    public static Connection getConection(String host,String puerto, String schema, String username, String pass ) {
-
-        System.out.println(host+"  "+puerto+"  "+schema+"  "+username+"  "+pass);
+    public static Connection getConection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-                return DriverManager.getConnection("jdbc:mysql://"+host+":"+puerto+"/"+schema,username,pass);
-        
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/experimento1","root", "heroes");
         } catch (Exception e) {
             e.printStackTrace();
         }
