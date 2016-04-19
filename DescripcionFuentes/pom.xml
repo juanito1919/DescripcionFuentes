@@ -16,6 +16,11 @@
     
     <dependencies>
         <dependency>
+            <groupId>Spark</groupId>
+            <artifactId>Spark</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -60,6 +65,18 @@
             <version>2.6.4</version>
         </dependency>
 
+        
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>resources-ckeditor</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        
         
         
     </dependencies>

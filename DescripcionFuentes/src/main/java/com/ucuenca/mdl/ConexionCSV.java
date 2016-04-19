@@ -6,7 +6,8 @@
 package com.ucuenca.mdl;
 
 
-import gestores.DAOCSV;
+//import gestores.DAOCSV;
+import com.ucuenca.dao.DAOCSV;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.apache.tika.exception.TikaException;

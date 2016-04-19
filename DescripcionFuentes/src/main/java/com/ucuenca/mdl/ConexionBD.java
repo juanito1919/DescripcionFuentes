@@ -5,7 +5,10 @@
  */
 package com.ucuenca.mdl;
 
-import gestores.DAOBaseDatos;
+//import gestores.DAOBaseDatos;
+
+import com.ucuenca.dao.DAOBaseDatos;
+
 
 
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="metadata">Metadata and event ....</ui:define>
+    
+    <h:head>
+        <!--Metadatos-->
+        <f:facet name="first">
+            <meta name="google-site-verification" content="ewOeuD6NEYYQk_aCVeoJB1RnkvZ1LpEmAXfNwmByRlc" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />             
+            <!--Metadatos incluidos-->            
+            <meta http-equiv="content-language" content="cs" />
+            <meta name="description" content="Sistema de reservas de eventos en linea" />
+            <meta name="keywords" content="eventos, events, boleto, ticket, concierto, concert, eventos, events" />
+            <meta name="robots" content="all,follow" />
+            
+        </f:facet>
+
+        
+        <title>
+            Descripcion de Fuentes
+        </title>
+
+       
+    </h:head>
+
+    <h:body id="body" style="background-color: #b0bcc5">    
+        
+        
+        <ui:include src="topbar.xhtml"/>
+        <ui:include src="layoutmenu.xhtml"/>                
+       
+        <h:form id="formContenido" prependId="false">
+            <br/>
+            <div id="layout-portlets-cover">               
+                <!--Contenido-->
+                <p:growl id="mensajes" escape="false" globalOnly="true" showDetail="true"  life="10000" />
+                <ui:insert name="mensaje"/>
+
+                <ui:insert name="content">
+                    Template                                                        
+                    <!--ui:insert name="body"/-->                    
+                </ui:insert>
+
+                
+                <div class="layout-portlets-box TexAlCenter">
+                <ui:include src="foot.xhtml" />
+                </div>
+                                    
+            </div>            
+           </h:form>
+
+
+        <ui:include src="status.xhtml"/>
+        <h:outputStylesheet name="styleCustom.css" library="css"/> 
+        
+        </h:body>
+
+</html>

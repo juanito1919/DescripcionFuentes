@@ -1,0 +1,147 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/04/2016, 09:46:14 PM
+    Author     : adrian
+*/
+
+#layout-portlets-cover{width:92%; margin:0px auto; display: block; }
+
+.layout-portlets-box{width:97%; padding:1% 1.5%; margin:8px auto; overflow: hidden; float:left; background-color:#F6FAFC/*#F1F6F9*/; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;
+-webkit-box-shadow: 0px 1px 0px 0px rgba(159,172,183,0.7);
+-moz-box-shadow: 0px 1px 0px 0px rgba(159,172,183,0.7);
+box-shadow: 0px 1px 0px 0px rgba(159,172,183,0.7);}
+
+#layout-topbar{
+    background-color: #f6fafc;
+    border-top: 6px solid #71cc8d;
+    display: table;
+    height: 100px;
+    width: 100%;
+}
+.panelMenu{
+    width: 92%; margin: -25px auto;
+    background-color: #71cc8d; 
+    color: white;
+}
+
+.ShadowGray {
+    box-shadow: 0 1px 0 0 rgba(159, 172, 183, 0.7);
+}
+
+#layout-menu {
+    background-color: #71cc8d;
+    box-shadow: 0 1px 0 0 rgba(70, 145, 91, 0.8);
+    margin: -25px auto 8px;
+    min-height: 50px;
+    padding: 0 1.5%;
+    width: 89%;
+}
+
+#layout-topbar-indent{width:92%; margin:0px auto;}
+
+/* Containers */
+.Container100{ width:100%;  float:left;}
+.Container96{ width:96%;  float:left;}
+.Container90{ width:90%;  float:left;}
+.Container85{ width:85%;  float:left;}
+.Container80{ width:80%;  float:left;}
+.Container75{ width:75%;  float:left;}
+.Container70{ width:70%;  float:left;}
+.Container60{ width:60%;  float:left;}
+.Container50{ width:50%;  float:left;}
+.Container40{ width:40%;  float:left;}
+.Container33{ width:33.3%;  float:left;}
+.Container30{ width:30%;  float:left;}
+.Container25{ width:25%;  float:left;}
+.Container20{ width:20%;  float:left;}
+.Container10{ width:10%;  float:left;}
+.Container5{ width:5%;  float:left;}
+
+
+/* Containers */
+.Wid100{ width:100%;   }
+.Wid96{ width:96%;   }
+.Wid90{ width:90%;   }
+.Wid85{ width:85%;   }
+.Wid80{ width:80%;   }
+.Wid75{ width:75%;   }
+.Wid70{ width:70%;   }
+.Wid60{ width:60%;   }
+.Wid50{ width:50%;   }
+.Wid40{ width:40%;   }
+.Wid33{ width:33.3%;   }
+.Wid30{ width:30%;   }
+.Wid25{ width:25%;   }
+.Wid20{ width:20%;   }
+.Wid10{ width:10%;   }
+.Wid5{ width:5%;   }
+
+.BigTopic {
+    border-bottom: 1px solid #c3ccd5;
+    color: #3b3d3f;
+    display: block;
+    font-family: "ralewaymedium";
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px !important;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.columnTop{
+    vertical-align: top;
+    
+}
+
+/**
+** Imagen de status
+**/
+.status_img {
+    background: url('../image/preloader.gif') no-repeat;
+    display: block;
+    width: 33px; /* Width of new image */
+    height: 33px; /* Height of new image */
+}
+
+
+/* Empty Boxes */
+.EmptyBox5{ display:block; width:100%; height:5px; overflow:hidden;}
+.EmptyBox10{ display:block; width:100%; height:10px; overflow:hidden;}
+.EmptyBox20{ display:block; width:100%; height:20px; overflow:hidden;}
+.EmptyBox30{ display:block; width:100%; height:30px; overflow:hidden;}
+.EmptyBox40{ display:block; width:100%; height:40px; overflow:hidden;}
+.EmptyBox50{ display:block; width:100%; height:50px; overflow:hidden;}
+.EmptyBox60{ display:block; width:100%; height:60px; overflow:hidden;}
+.EmptyBox70{ display:block; width:100%; height:70px; overflow:hidden;}
+.EmptyBox80{ display:block; width:100%; height:80px; overflow:hidden;}
+.EmptyBox90{ display:block; width:100%; height:90px; overflow:hidden;}
+.EmptyBox100{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox110{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox120{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox130{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox140{ display:block; width:100%; height:100px; overflow:hidden;}
+.EmptyBox150{ display: block; width: 100%; height:150px; overflow:hidden;}
+.EmptyBox15{ display:block; width:100%; height:15px; overflow:hidden;}
+
+#menu-mask{position:fixed; z-index:999998; background-color:#647984; opacity:0;
+-webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -ms-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease;}
+
+html {
+   width: 100%;
+   height: 100%;
+}
+#body {
+   width: 100%;
+   height: 100%;
+}
+
+.FontRalewayBold{font-family: 'ralewaybold';}
+.FontRalewaySemiBold{font-family: 'ralewaysemibold';}
+.FontRalewayMedium{font-family: 'ralewaymedium';}
+.FontRalewayRegular{font-family: 'ralewayregular';}
+.FontRalewayLight{font-family: 'ralewaylight';}
