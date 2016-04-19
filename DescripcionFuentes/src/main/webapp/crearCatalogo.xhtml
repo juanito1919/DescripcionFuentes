@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:sec="http://www.springframework.org/security/tags"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="layout-portlets-box">
+            <p:outputLabel value="Nuevo Catalogo" class="BigTopic"/>
+            
+
+            <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop,Wid50 columnTop">
+                <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop, Wid50 columnTop">
+                    <p:outputLabel value="Titulo:"/>
+                    <p:inputText value="#{gestorCatalogo.catalogo.title}"/>
+
+                    <p:outputLabel value="Fecha de Creacion:"/>
+                    <p:calendar value="#{gestorCatalogo.catalogo.issued}" showOn="button" />
+
+                    <p:outputLabel value="Lenguaje:"/>
+                    <p:inputText value="#{gestorCatalogo.catalogo.language}"/>
+
+                    <p:outputLabel value="Licencia:"/>
+                    <h:panelGrid columns="1">
+                        <p:inputText value="#{gestorCatalogo.catalogo.license}" placeholder="url"/>
+                        <p:commandLink value="Cargar Archivo"/>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid30 columnTop,Wid70 columnTop">
+                    <p:outputLabel value="Descripcion:"/>
+                    <p:inputTextarea value="#{gestorCatalogo.catalogo.title}" style="width: 90%"/>
+                </h:panelGrid>
+
+            </h:panelGrid>
+            <br/>
+            <h:panelGrid columns="2" cellpadding="5px">
+                <p:outputLabel value="DataSets"/>
+                <p:commandButton style="float: right" immediate="true" actionListener="#" value="Agregar Dataset">
+                </p:commandButton>
+
+            </h:panelGrid>
+            <p:separator/>
+            <p:outputPanel style="width: 50%" rendered="#{!empty gestorCatalogo.datasets}">
+                <p:dataGrid var="conex" value="" columns="3" layout="grid"
+                            rows="3" paginator="true" id="conexiones"
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            rowsPerPageTemplate="6,12,16">
+
+                    <f:facet name="header">
+                        Datasets Cargados
+                    </f:facet>
+
+                    <p:panel>
+
+                    </p:panel>
+
+                </p:dataGrid>
+
+
+
+            </p:outputPanel>
+
+
+
+            <div class="EmptyBox100 "></div>
+            <div class="EmptyBox100 "></div>
+
+        </div>
+
+    </ui:define>
+
+    <!--ui:define name="status">
+        <ui:include src="status.xhtml"/>
+    </ui:define-->
+
+</ui:composition>

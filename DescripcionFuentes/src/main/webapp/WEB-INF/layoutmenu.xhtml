@@ -1,0 +1,41 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+
+    <h:form id="formMenu" style="width: 100%">
+        <style>
+            .ui-menu .ui-menuitem .ui-menuitem-link {
+                color: white;
+                font-family: "ralewaymedium";
+            }
+            .ui-menu .ui-menuitem .ui-menu-list {
+                background-color: #71cc8d;
+            }
+            .ui-menu .ui-menu-list .ui-menuitem .ui-state-hover, .ui-menu .ui-menu-list .ui-state-hover {
+                background-color: transparent;
+                border-radius: 2px;
+                color: black;
+            }
+
+        </style>
+        <p:outputPanel styleClass="panelMenu">
+            <p:menubar style="background-color: #71cc8d; height: 35px">
+                <p:menuitem value="Home" url="#" style="color: white" styleClass="FontRalewaySemiBold" icon="fa fa-info-circle" />
+                <p:submenu label="Catalogos" icon="ui-icon-document" style="color: white">
+                    <p:menuitem value="Nuevo" action="#{gestorCatalogo.initCatalogo()}"/>
+                </p:submenu>
+            </p:menubar>
+        </p:outputPanel>
+        <br/>
+    </h:form>
+
+</ui:composition>
+
+
+
+
+
