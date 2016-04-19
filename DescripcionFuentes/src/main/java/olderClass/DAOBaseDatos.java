@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucuenca.dao;
+package olderClass;
 
 import Conexion.Conexion;
-import com.ucuenca.mdl.BaseDatos;
-import com.ucuenca.mdl.Column;
-import com.ucuenca.mdl.Table;
+import olderClass.BaseDatos;
+import olderClass.Column;
+import olderClass.Table;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

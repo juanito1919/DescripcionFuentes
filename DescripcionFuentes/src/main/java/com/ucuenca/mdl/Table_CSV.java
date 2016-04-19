@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucuenca.mdl.prueba;
+package com.ucuenca.mdl;
 
-import com.ucuenca.mdl.Column;
+import olderClass.Column;
 import java.util.ArrayList;
 
 /**
@@ -20,10 +20,7 @@ public class Table_CSV extends Table {
     private String NAME_ON_FIRST_ONE;
     private String FIRST_DATE_LINE;
 
-    public Table_CSV(String TABLE_NAME, String TABLE_TYPE, String ENGINE, String VERSION, int TABLE_ROWS, String DATA_LENGTH, String MAX_DATA_LENGTH, boolean AUTO_INCREMENT, String TABLE_COMMENT, ArrayList<Column> columnas) {
-        super(TABLE_NAME, TABLE_TYPE, ENGINE, VERSION, TABLE_ROWS, DATA_LENGTH, MAX_DATA_LENGTH, AUTO_INCREMENT, TABLE_COMMENT, columnas);
-    }
-
+   
     /**
      * @return the DELIMITER
      */

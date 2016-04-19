@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucuenca.mdl.prueba;
+package com.ucuenca.mdl;
 
 /**
  *
@@ -13,10 +13,6 @@ public class Column_CSV extends Column {
 
     private String FORMAT;
     private String POSITION;
-
-    public Column_CSV(String COLUMN_NAME, String COLUMN_DEFAULT, boolean IS_NULLABLE, String DATA_TYPE, String CHARACTER_MAXIMUM_LENGTH, boolean COLUMN_KEY, String COLUMN_COMMENT) {
-        super(COLUMN_NAME, COLUMN_DEFAULT, IS_NULLABLE, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, COLUMN_KEY, COLUMN_COMMENT);
-    }
 
     /**
      * @return the FORMAT

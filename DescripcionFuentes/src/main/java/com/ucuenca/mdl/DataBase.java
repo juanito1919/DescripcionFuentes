@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucuenca.mdl.prueba;
+package com.ucuenca.mdl;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class DataBase {
 
     private String CATALOG_NAME;
     private String SCHEMA_NAME;
-    private ArrayList<com.ucuenca.mdl.Table> tables;
+    private ArrayList<Table> tables;
 
     /**
      * @return the CATALOG_NAME
@@ -48,14 +48,14 @@ public class DataBase {
     /**
      * @return the tables
      */
-    public ArrayList<com.ucuenca.mdl.Table> getTables() {
+    public ArrayList<Table> getTables() {
         return tables;
     }
 
     /**
      * @param tables the tables to set
      */
-    public void setTables(ArrayList<com.ucuenca.mdl.Table> tables) {
+    public void setTables(ArrayList<Table> tables) {
         this.tables = tables;
     }
     
