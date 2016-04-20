@@ -17,9 +17,9 @@ import olderClass.CSV;
 import olderClass.Catalog;
 import olderClass.Column;
 import olderClass.ColumnCsv;
-import olderClass.Conexion;
-import olderClass.ConexionBD;
-import olderClass.ConexionCSV;
+import com.ucuenca.mdl.Conexion;
+import com.ucuenca.mdl.ConexionBD;
+import com.ucuenca.mdl.ConexionCSV;
 import olderClass.Table;
 
 import java.io.FileNotFoundException;

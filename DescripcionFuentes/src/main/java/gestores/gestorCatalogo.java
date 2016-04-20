@@ -14,7 +14,15 @@ import java.util.List;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import olderClass.Conexion;
+import com.ucuenca.mdl.Conexion;
+import com.ucuenca.mdl.ConexionBD;
+import com.ucuenca.mdl.ConexionCSV;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -30,14 +38,41 @@ public class gestorCatalogo implements Serializable {
     private static final String FORM = "/crearCatalogo.jsf?faces-redirect=true";
     private static final String NUEVO_CATALOGO = "crearCatalogo?faces-redirect=true";
     private static final String REDIRECT = "?faces-redirect=true";
-    
-    
     private static final String DISPONIBILIDAD = "/../crearCatalogo/";
     private Catalog catalogo;
     private List<Conexion> datasets =  new ArrayList();
+    private String tipo_conexion;
+    /**
+     * Variables utilizadas en la creacion de una conexion
+     */
+    private String keywords;
+    private String descripcion;
+    private String lenguaje;
+    private String nombre;
+    //Base de datos
+    private String host;
+    private String puerto;
+    private String username;
+    private String password;
+    private String schema;
+    //CSV
+    private String accessURL;
+    private UploadedFile file;
+    
+    private boolean popupConexion;
     
     
-        /** 
+    
+    public gestorCatalogo(Catalog catalogo, String tipo_conexion, String keywords) {
+        this.catalogo = catalogo;
+        this.tipo_conexion = tipo_conexion;
+        this.keywords = keywords;
+    }
+   
+    
+    
+    
+     /** 
      * Intancia de Gestor
      * @return 
      */
@@ -54,9 +89,77 @@ public class gestorCatalogo implements Serializable {
         
         catalogo = new Catalog();
         datasets =  new ArrayList<>();
+        popupConexion = false;
+        tipo_conexion = "BD";
         
         return "/"+NUEVO_CATALOGO+REDIRECT;
  
+        
+    }
+    
+    public void agregarDataset(){
+        System.out.println("key "+keywords+"//"+descripcion+"//"+host);
+        if(tipo_conexion.equalsIgnoreCase("BD")){
+            
+            //Validaciones
+            ConexionBD conexion = new ConexionBD();
+            conexion.setName(nombre);
+            conexion.setDescription(descripcion);
+            conexion.setLanguage(lenguaje);
+            conexion.setKeyword(keywords);
+            conexion.setHost(host);
+            conexion.setPort(puerto);
+            conexion.setUsername(username);
+            conexion.setPassword(password);
+            
+            datasets.add(conexion);
+            
+        }
+        
+        if(tipo_conexion.equalsIgnoreCase("CSV")){
+            
+            //Validaciones
+            
+            ConexionCSV conexion = new ConexionCSV();
+            conexion.setNombre(nombre);
+            conexion.setDescription(descripcion);
+            conexion.setLanguage(lenguaje);
+            conexion.setKeyword(keywords);
+            conexion.setAccessURL(accessURL);
+            
+            datasets.add(conexion);
+            
+        }
+        
+        for (Conexion dataset : datasets) {
+            System.out.println("Dataset.. "+dataset.getKeyword()+"/"+datasets.size());
+        }
+        popupConexion = false;
+        
+    }
+    public void upload() {
+        if(file != null) {
+            try {
+                InputStream inputStream = file.getInputstream();
+                
+                
+                
+                
+                
+                
+                
+            } catch (IOException ex) {
+                Logger.getLogger(gestorCatalogo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
+    
+    public void abrirPopUpConexion(){
+        tipo_conexion = "BD";
+        popupConexion = true;
+        
+        
         
     }
 
@@ -74,6 +177,110 @@ public class gestorCatalogo implements Serializable {
 
     public void setDatasets(List<Conexion> datasets) {
         this.datasets = datasets;
+    }
+
+    public String getTipo_conexion() {
+        return tipo_conexion;
+    }
+
+    public void setTipo_conexion(String tipo_conexion) {
+        this.tipo_conexion = tipo_conexion;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getLenguaje() {
+        return lenguaje;
+    }
+
+    public void setLenguaje(String lenguaje) {
+        this.lenguaje = lenguaje;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPuerto() {
+        return puerto;
+    }
+
+    public void setPuerto(String puerto) {
+        this.puerto = puerto;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSchema() {
+        return schema;
+    }
+
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
+
+    public String getAccessURL() {
+        return accessURL;
+    }
+
+    public void setAccessURL(String accessURL) {
+        this.accessURL = accessURL;
+    }
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    public boolean isPopupConexion() {
+        return popupConexion;
+    }
+
+    public void setPopupConexion(boolean popupConexion) {
+        this.popupConexion = popupConexion;
     }
     
     

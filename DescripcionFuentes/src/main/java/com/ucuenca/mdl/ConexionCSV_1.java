@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package olderClass;
+package com.ucuenca.mdl;
+
+
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,11 +16,11 @@ import org.xml.sax.SAXException;
  *
  * @author adrian
  */
-public class ConexionCSV extends Conexion {
-
+public class ConexionCSV_1 extends Conexion{
+    
     private String accessURL;
 
-    public ConexionCSV() {
+    public ConexionCSV_1() {
     }
 
     public String getAccessURL() {
@@ -28,11 +30,13 @@ public class ConexionCSV extends Conexion {
     public void setAccessURL(String accessURL) {
         this.accessURL = accessURL;
     }
-
+    
+     
 //    public CSV getModel() throws IOException, FileNotFoundException, SAXException, TikaException{
 //        
-////        DAOCSV daoCsv = new DAOCSV();
-////        return daoCsv.getTablas(this.accessURL);
+//        DAOCSV daoCsv = new DAOCSV();
+//        return daoCsv.getTablas(this.accessURL);
 //        
 //    }
+    
 }

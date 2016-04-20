@@ -7,9 +7,16 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="content">
+        <style>
+
+            .ui-paginator.ui-paginator-top {
+                border-bottom: 0 none;
+                display: none;
+            }
+        </style>
         <div class="layout-portlets-box">
             <p:outputLabel value="Nuevo Catalogo" class="BigTopic"/>
-            
+
 
             <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop,Wid50 columnTop">
                 <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop, Wid50 columnTop">
@@ -37,23 +44,53 @@
             </h:panelGrid>
             <br/>
             <h:panelGrid columns="2" cellpadding="5px">
-                <p:outputLabel value="DataSets"/>
-                <p:commandButton style="float: right" immediate="true" actionListener="#" value="Agregar Dataset">
+                <p:outputLabel value="DataSets" style=" font-size: 20px"/>
+                <p:commandButton style="float: right" update="conexionDialog" immediate="true" actionListener="#{gestorCatalogo.abrirPopUpConexion()}" value="Agregar Dataset">
                 </p:commandButton>
 
             </h:panelGrid>
             <p:separator/>
-            <p:outputPanel style="width: 50%" rendered="#{!empty gestorCatalogo.datasets}">
-                <p:dataGrid var="conex" value="" columns="3" layout="grid"
-                            rows="3" paginator="true" id="conexiones"
-                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                            rowsPerPageTemplate="6,12,16">
+            <p:outputPanel style="width: 100%" id="dataConexiones" >
+                <p:dataGrid  var="conex" value="#{gestorCatalogo.datasets}" columns="3" layout="grid" rendered="#{!empty gestorCatalogo.datasets}"
+                             rows="3" paginator="true" id="conexiones"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             >
 
-                    <f:facet name="header">
-                        Datasets Cargados
-                    </f:facet>
 
-                    <p:panel>
+
+                    <p:panel style="height: 200px" id="infBD" rendered="#{conex.tipoConexion() == 'BD'}">
+                        <h:outputText style="font-weight: bold; font-size: 18px; display: block" value="Base de datos"/>
+                        <p:separator/>
+                        <h:outputText value="#{conex.description}"/>
+                        <br/><br/>
+                        <h:panelGrid columns="2"> 
+                            <h:outputText style="font-weight: bold" value="KeyWords"/>
+                            <h:outputText value="#{conex.keyword}"/>
+                            <h:outputText style="font-weight: bold" value="Host"/>
+                            <h:outputText value="#{conex.host}"/>
+                            <h:outputText style="font-weight: bold" value="Puerto"/>
+                            <h:outputText value="#{conex.port}"/>
+                            <h:outputText style="font-weight: bold" value="Usuario"/>
+                            <h:outputText value="#{conex.username}"/>
+                            <h:outputText style="font-weight: bold" value="Contrasena"/>
+                            <h:outputText value="#{conex.password}"/>
+
+                        </h:panelGrid>
+
+                    </p:panel>
+
+                    <p:panel style="height: 200px" id="infCSV" rendered="#{conex.tipoConexion() == 'CSV'}">
+                        <h:outputText style="font-weight: bold; font-size: 18px; display: block" value="CSV"/>
+                        <p:separator/>
+                        <h:outputText value="#{conex.description}"/>
+                        <br/><br/>
+                        <h:panelGrid columns="2"> 
+                            <h:outputText style="font-weight: bold" value="KeyWords"/>
+                            <h:outputText value="#{conex.keyword}"/>
+                            <h:outputText style="font-weight: bold" value="Acess Url"/>
+                            <h:outputText value="#{conex.accessURL}"/>
+
+                        </h:panelGrid>
 
                     </p:panel>
 
@@ -62,13 +99,117 @@
 
 
             </p:outputPanel>
+            <br/><br/>
+            <p:outputPanel style="width: 100%" id="panelBotones">
+                <p:commandButton value="Generar Ontologia" style="float: right" rendered="#{!empty gestorCatalogo.datasets}"/>
+            </p:outputPanel>
 
 
 
             <div class="EmptyBox100 "></div>
-            <div class="EmptyBox100 "></div>
-
+      
         </div>
+
+        <p:dialog visible="#{gestorCatalogo.popupConexion}" id="conexionDialog" widgetVar="conexionDialog" header="Cargar Dataset" width="30%" modal="true" showEffect="clip" hideEffect="clip">
+
+            <p:outputPanel style="width: 97%; margin: 0 auto" id="panelConexion">    
+                <p:outputPanel style="width: 100%" id="panelGeneralConexion">
+                    <h:panelGrid style="width: 100%" columns="2" columnClasses="Wid30,Wid70">
+                        <p:outputLabel value="Tipo de dataset:"/>
+                        <p:selectOneMenu value="#{gestorCatalogo.tipo_conexion}" 
+                                         immediate="true">
+                            <f:selectItem itemLabel="Seleccione" itemValue=""/>
+                            <f:selectItem itemLabel="Base de datos" itemValue="BD"/>
+                            <f:selectItem itemLabel="CSV" itemValue="CSV"/>
+                            <f:selectItem itemLabel="Excel" itemValue="EXCEL"/>
+                            <f:selectItem itemLabel="XML" itemValue="XML"/>
+                            <f:selectItem itemLabel="ShapeFile" itemValue="SHAPE"/>
+
+                            <p:ajax immediate="true" update="panelesDataset panelBD panelCSV"/>
+
+
+
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Keywords:"/>
+                        <p:inputText value="#{gestorCatalogo.keywords}" immediate="true" >
+                            <p:ajax process="@this"/>
+                        </p:inputText>
+                        <p:outputLabel value="Descripcion:"/>
+                        <p:inputText value="#{gestorCatalogo.descripcion}">
+                            <p:ajax process="@this"/>
+                        </p:inputText>
+                        <p:outputLabel value="Lenguaje:"/>
+                        <p:inputText value="#{gestorCatalogo.lenguaje}">
+                            <p:ajax process="@this"/>
+                        </p:inputText>
+
+
+                    </h:panelGrid>
+                </p:outputPanel>
+                <p:separator/>
+                <p:outputPanel id="panelesDataset">
+                    <p:outputPanel id="panelBD" style="width: 100%" rendered="#{gestorCatalogo.tipo_conexion == 'BD'}">
+                        <h:panelGrid style="width: 100%" columns="2" columnClasses="Wid30,Wid70">
+                            <p:outputLabel value="Nombre:"/>
+                            <p:inputText value="#{gestorCatalogo.nombre}">
+                                <p:ajax process="@this"/>
+                            </p:inputText>
+                            <p:outputLabel value="Host:"/>
+                            <p:inputText value="#{gestorCatalogo.host}">
+                                <p:ajax process="@this"/>
+                            </p:inputText>
+
+                            <p:outputLabel value="Puerto:"/>
+                            <p:inputText value="#{gestorCatalogo.puerto}">
+                                <p:ajax process="@this"/>
+                            </p:inputText>
+
+                            <p:outputLabel value="Usuario:"/>
+                            <p:inputText value="#{gestorCatalogo.username}">
+                                <p:ajax process="@this"/>
+                            </p:inputText>
+
+                            <p:outputLabel value="Contrasena:"/>
+                            <p:inputText value="#{gestorCatalogo.password}">
+                                <p:ajax process="@this"/>
+                            </p:inputText>
+
+
+
+                        </h:panelGrid>
+                    </p:outputPanel>
+
+                    <p:outputPanel id="panelCSV" style="width: 100%" rendered="#{gestorCatalogo.tipo_conexion == 'CSV'}">
+                        <h:panelGrid style="width: 100%" columns="2" columnClasses="Wid30,Wid70">
+                            <p:outputLabel value="Access URL:"/>
+                            <p:inputText value="#{gestorCatalogo.accessURL}">
+                                <p:ajax process="@this"/>
+
+                            </p:inputText>
+                        </h:panelGrid>
+                    </p:outputPanel>
+
+                </p:outputPanel>
+
+            </p:outputPanel>
+
+            <f:facet name="footer">
+                <h:panelGrid id="pnl_botonConfirmar" columns="1" style="width: 100%" columnClasses="columnR">
+                    <p:commandButton value="Agregar" action="#{gestorCatalogo.agregarDataset()}" 
+                                     immediate="true" partialSubmit="true" update="dataConexiones panelBotones" process="conexionDialog"/>
+                </h:panelGrid>
+            </f:facet>
+
+
+
+
+        </p:dialog>
+
+
+
+
+
 
     </ui:define>
 

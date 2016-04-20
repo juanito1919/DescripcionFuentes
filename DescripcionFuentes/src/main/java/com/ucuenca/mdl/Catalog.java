@@ -6,7 +6,6 @@
 package com.ucuenca.mdl;
 
 import java.util.ArrayList;
-import olderClass.Conexion;
 
 /**
  *

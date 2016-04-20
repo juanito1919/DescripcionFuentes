@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package olderClass;
+package com.ucuenca.mdl;
 
 /**
  *
@@ -14,7 +14,7 @@ public class Conexion {
     private String description;
     private String keyword;
     private String language;
-    private String nombre;
+    private String name;
     
     public Conexion() {
     }
@@ -46,14 +46,26 @@ public class Conexion {
     }
 
     public String getNombre() {
-        return nombre;
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String name) {
+        this.name = name;
     }
 
-    
+    public String tipoConexion(){
+        String tipoConexion = "";
+        if(this instanceof ConexionBD){
+            tipoConexion = "BD";
+        }
+        
+        if(this instanceof ConexionCSV){
+            tipoConexion = "CSV";
+        }
+        
+        return tipoConexion;
+        
+    }
     
     
     

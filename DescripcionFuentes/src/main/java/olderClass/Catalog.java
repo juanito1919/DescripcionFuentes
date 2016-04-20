@@ -5,6 +5,7 @@
  */
 package olderClass;
 
+import com.ucuenca.mdl.Conexion;
 import java.util.ArrayList;
 
 /**
