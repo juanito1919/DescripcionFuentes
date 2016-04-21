@@ -25,8 +25,12 @@
         <p:outputPanel styleClass="panelMenu">
             <p:menubar style="background-color: #71cc8d; height: 35px">
                 <p:menuitem value="Home" url="#" style="color: white" styleClass="FontRalewaySemiBold" icon="fa fa-info-circle" />
+              
                 <p:submenu label="Catalogos" icon="ui-icon-document" style="color: white">
                     <p:menuitem value="Nuevo" action="#{gestorCatalogo.initCatalogo()}"/>
+                </p:submenu>
+                  <p:submenu label="Consulta"  icon="fa fa-info-circle" >
+                    <p:menuitem value="Consulta SPARQL"/>
                 </p:submenu>
             </p:menubar>
         </p:outputPanel>

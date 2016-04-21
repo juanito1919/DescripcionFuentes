@@ -21,21 +21,27 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class DataBaseController extends AbstractMB implements Serializable {
 
+    private static final String FORM = "/crearCatalogo.jsf?faces-redirect=true";
+    private static final String NUEVO_CATALOGO = "crearCatalogo?faces-redirect=true";
+    private static final String REDIRECT = "?faces-redirect=true";
+    private static final String DISPONIBILIDAD = "/../crearCatalogo/";
+
     private BaseDatosDao baseDatosDao;
     private BaseExcelDao baseExcelDao;
     private BaseCSVDao baseCSVDao;
     private BaseXMLDao baseXMLDao;
 
     private String type_DataBase;
-    private String url;
+    private String url = "localhost";
     private String path;
-    private String port;
-    private String user;
-    private String password;
+    private String port = "3306";
+    private String user = "root";
+    private String password = "1234";
+    private String schema = "base";
 
     public void addDataBase() {
         if (getType_DataBase().equalsIgnoreCase("DATABASE")) {
-            getBaseDatosDao();
+
         }
         if (getType_DataBase().equalsIgnoreCase("CSV")) {
 
@@ -46,6 +52,30 @@ public class DataBaseController extends AbstractMB implements Serializable {
         if (getType_DataBase().equalsIgnoreCase("XML")) {
 
         }
+    }
+
+    public void agregarBaseDatos() {
+        if (getType_DataBase() != null && getType_DataBase().length() > 0) {
+            if (getType_DataBase().equalsIgnoreCase("DATABASE")) {
+                System.out.println("log : va ah gestionar una Base de DataBase");
+                
+                baseDatosDao= new BaseDatosDao(url, port, schema, user, password);
+
+            }
+            if (getType_DataBase().equalsIgnoreCase("CSV")) {
+                System.out.println("log : va ah gestionar una Base de CSV");
+
+            }
+            if (getType_DataBase().equalsIgnoreCase("EXCEL")) {
+                System.out.println("log : va ah gestionar una Base de Excel");
+
+            }
+            if (getType_DataBase().equalsIgnoreCase("XML")) {
+                System.out.println("log : va ah gestionar una base Xml");
+
+            }
+        }
+
     }
 
     public void createOntology() {
@@ -151,7 +181,7 @@ public class DataBaseController extends AbstractMB implements Serializable {
      */
     public BaseExcelDao getBaseExcelDao() {
         if (baseExcelDao == null) {
-            baseExcelDao = new BaseExcelDao();
+           
         }
         return baseExcelDao;
     }
@@ -174,5 +204,19 @@ public class DataBaseController extends AbstractMB implements Serializable {
             baseXMLDao = new BaseXMLDao();
         }
         return baseXMLDao;
+    }
+
+    /**
+     * @return the schema
+     */
+    public String getSchema() {
+        return schema;
+    }
+
+    /**
+     * @param schema the schema to set
+     */
+    public void setSchema(String schema) {
+        this.schema = schema;
     }
 }

@@ -34,9 +34,6 @@ public class BaseExcelDao extends AbstractDao {
         this.path = path;
     }
 
-    public BaseExcelDao() {
-    }
-
     /**
      * This method gets sheets of file excel
      *
@@ -64,7 +61,7 @@ public class BaseExcelDao extends AbstractDao {
      * @param schema
      * @Author pablo and adrian
      */
-    public void getWorkBook() {
+    public DataBase getWorkBook() {
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(path);
@@ -72,11 +69,13 @@ public class BaseExcelDao extends AbstractDao {
             DataBase dataSet = new DataBase();
             dataSet.setSCHEMA_NAME(workbook.toString());
             dataSet.setTables(getSheet(workbook));
+            return dataSet;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     /**

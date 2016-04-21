@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:sec="http://www.springframework.org/security/tags"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <style>
+
+            .ui-paginator.ui-paginator-top {
+                border-bottom: 0 none;
+                display: none;
+            }
+        </style>
+        <div class="layout-portlets-box">
+            <h:form>
+                <p:outputLabel value="Consulta Sparql" class="BigTopic"/>
+
+                <h:panelGrid columns="1" style="width: 60%" columnClasses="Wid50 columnTop,Wid50 columnTop">
+                    <p:inputTextarea rows="20" cols="80" value="#{ConsultaController.sql}">
+                        
+                    </p:inputTextarea>
+                    <p:commandButton value="Generar"/>
+                </h:panelGrid>
+                <div class="EmptyBox10"></div>
+                <p:panel header="Resultado">
+                    
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

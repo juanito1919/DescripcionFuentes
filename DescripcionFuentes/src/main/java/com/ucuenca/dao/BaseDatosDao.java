@@ -32,7 +32,7 @@ public class BaseDatosDao extends AbstractDao {
     }
 
     public BaseDatosDao(String host, String puerto, String schema, String username, String pass) {
-        conexion = Conexion.getConection();
+        conexion = Conexion.getConection(host, puerto, schema, username, pass);
         this.schema = schema;
     }
 

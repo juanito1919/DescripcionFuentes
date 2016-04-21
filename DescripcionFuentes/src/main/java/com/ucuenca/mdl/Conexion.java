@@ -15,6 +15,7 @@ public class Conexion {
     private String keyword;
     private String language;
     private String name;
+    private int numTablas;
     
     public Conexion() {
     }
@@ -65,6 +66,20 @@ public class Conexion {
         
         return tipoConexion;
         
+    }
+
+    /**
+     * @return the numTablas
+     */
+    public int getNumTablas() {
+        return numTablas;
+    }
+
+    /**
+     * @param numTablas the numTablas to set
+     */
+    public void setNumTablas(int numTablas) {
+        this.numTablas = numTablas;
     }
     
     

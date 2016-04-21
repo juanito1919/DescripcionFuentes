@@ -5,11 +5,6 @@
  */
 package com.ucuenca.mdl;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import org.apache.tika.exception.TikaException;
-import org.xml.sax.SAXException;
-
 /**
  *
  * @author adrian

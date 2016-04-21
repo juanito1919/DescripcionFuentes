@@ -25,7 +25,7 @@ public class DAOBaseDatos {
 
     static DAOBaseDatos instance = null;
     Connection conexion = null;
-    String schema = "";
+    String schema;
 
     public static DAOBaseDatos getInstance() {
         if (instance == null) {
@@ -38,10 +38,9 @@ public class DAOBaseDatos {
     }
 
     public DAOBaseDatos(String host, String puerto, String schema, String username, String pass) {
-        //  conexion = Conexion.getConection(host,puerto,schema,username,pass);
-        conexion = Conexion.getConection();
+        
+        conexion = Conexion.getConection(host, puerto, schema, username, pass);
         this.schema = schema;
-
     }
 
     public ArrayList<Table> getTablas(String schema) {
@@ -95,10 +94,6 @@ public class DAOBaseDatos {
             ResultSet rs = stmt.executeQuery(sql);
             ArrayList<Column> columns = new ArrayList();
             while (rs.next()) {
-                /*System.out.println("result0: "+rs.getString(3));;
-                 System.out.println("result4: "+rs.getString(4));;
-                 */
-                System.out.println("result14: " + rs.getString(17));;
                 Column column = new Column();
                 column.setCOLUMN_NAME(rs.getString(4));
                 column.setORDINAL_POSITION(rs.getString(5));
