@@ -7,9 +7,12 @@ package com.ucuenca.dao;
 
 import olderClass.DAOBaseDatos;
 import Conexion.Conexion;
-import olderClass.BaseDatos;
-import olderClass.Column;
-import olderClass.Table;
+import com.ucuenca.mdl.Column;
+import com.ucuenca.mdl.Column_Base;
+import com.ucuenca.mdl.DataBase;
+import com.ucuenca.mdl.Table;
+import com.ucuenca.mdl.Table_Base;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,24 +60,26 @@ public class BaseDatosDao extends AbstractDao {
             ResultSet rs = stmt.executeQuery(sql);
             ArrayList<Table> tables = new ArrayList();
             while (rs.next()) {
-                Table table = new Table();
-                table.setTABLE_NAME(rs.getString(3));
-                table.setTABLE_TYPE(rs.getString(4));
-                table.setENGINE(rs.getString(5));
-                table.setVERSION(rs.getString(6));
-                table.setROW_FORMAT(rs.getString(7));
-                table.setTABLE_ROWS(rs.getString(8));
-                table.setAVG_ROW_LENGTH(rs.getString(9));
-                table.setDATA_LENGTH(rs.getString(10));
-                table.setMAX_DATA_LENGTH(rs.getString(11));
-                table.setAUTO_INCREMENT(rs.getString(12));
-                table.setCREATE_TIME(rs.getString(13));
-                table.setUPDATE_TIME(rs.getString(14));
-                table.setCHECK_TIME(rs.getString(15));
-                table.setTABLE_COLLATION(rs.getString(16));
-                table.setCHECKSUM(rs.getString(17));
-                table.setTABLE_COMMENT(rs.getString(17));
-                ArrayList<Column> columns = getColumns(schema, table.getTABLE_NAME());
+                Table_Base table = new Table_Base();
+                table.setTitle(rs.getString(3));//TABLE_NAME
+                table.setDescription(rs.getString(21));//TABLE_COMMENT
+                System.out.println("isuued table.. "+rs.getString(15)+"/"+rs.getString(3));
+                table.setIssued(rs.getString(15));//CREATE_TIME
+                if(rs.getString(16) != null){
+                    table.setModified(rs.getString(16));//UPDATE_TIME
+                
+                }else
+                {
+                    table.setModified("");//UPDATE_TIME
+                
+                }
+                table.setMediaType("application/sql");
+                table.setFormat("application/sql");
+                table.setByteSize(getByteSizeDBTable(rs.getString(10), rs.getString(12)));
+                table.setCharacterSet(getCharacterSetTableDB(schema, rs.getString(3)));
+                table.setDefaultDecimalSeparator(".");//default standard mysql
+                table.setOverrallRecordCount(rs.getString(8));
+                ArrayList<Column> columns = getColumns(schema, table.getTitle());
                 table.setColumnas(columns);
                 tables.add(table);
             }
@@ -85,10 +90,40 @@ public class BaseDatosDao extends AbstractDao {
         }
 
     }
+    
+    public String getByteSizeDBTable(String data_length, String index_length){
+        
+        double dataAux = Double.parseDouble(data_length);        
+        double indexAux = Double.parseDouble(index_length);        
+        double bytesize = (dataAux + indexAux)/1024/1024;
+        return String.valueOf(bytesize);
+    
+    }
+    
+    public String getCharacterSetTableDB(String schema, String table) {
+        String character_set = "";
+        try {
+            Statement stmt = conexion.createStatement();
+            String sql;
+            sql = "SELECT CCSA.character_set_name FROM INFORMATION_SCHEMA.TABLES T,"
+                    + "INFORMATION_SCHEMA.COLLATION_CHARACTER_SET_APPLICABILITY CCSA "
+                    + " WHERE T.TABLE_SCHEMA = '" + schema + "' AND T.TABLE_NAME = '"+table+"'"
+                    + "AND CCSA.COLLATION_NAME = T.TABLE_COLLATION";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                character_set = rs.getString(1);
+            }
+            return character_set;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
 
+    }
+ 
     /**
      * This method gets all column
-     *
+     *g
      * @param schema
      * @param table
      * @Author pablo and adrian
@@ -101,21 +136,11 @@ public class BaseDatosDao extends AbstractDao {
             ResultSet rs = stmt.executeQuery(sql);
             ArrayList<Column> columns = new ArrayList();
             while (rs.next()) {
-                Column column = new Column();
-                column.setCOLUMN_NAME(rs.getString(4));
-                column.setORDINAL_POSITION(rs.getString(5));
-                column.setCOLUMN_DEFAULT(rs.getString(6));
-                column.setIS_NULLABLE(rs.getString(7));
-                column.setDATA_TYPE(rs.getString(8));
-                column.setCHARACTER_MAXIMUM_LENGTH(rs.getString(9));
-                column.setCHARACTER_OCTET_LENGTH(rs.getString(10));
-                column.setNUMERIC_PRECISION(rs.getString(11));
-                column.setNUMERIC_SCALE(rs.getString(12));
-                column.setCHARACTER_SET_NAME(rs.getString(13));
-                column.setCOLLATION_NAME(rs.getString(15));
-                column.setCOLUMN_KEY(rs.getString(17));
-                column.setEXTRA(rs.getString(18));
-                column.setCOLUMN_COMMENT(rs.getString(18));
+                Column_Base column = new Column_Base();
+                column.setTitle(rs.getString(4));
+                column.setStorageFormat(rs.getString(8));
+                column.setDecimalPositions(".");//default standard mysql
+                column.setRecordNumber(getRecordNumberColumnBD(schema, table, column.getTitle()));
                 columns.add(column);
             }
             return columns;
@@ -125,25 +150,46 @@ public class BaseDatosDao extends AbstractDao {
         }
 
     }
+    
+    public String getRecordNumberColumnBD(String schema, String table, String column) {
+        try {
+            Statement stmt = conexion.createStatement();
+            String sql;
+            String recordNumber = "";
+            sql = "SELECT count("+column+") FROM "+schema+"."+table+" WHERE "+column+" IS NOT NULL ";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                recordNumber = rs.getString(1);
+            }
+            
+            return recordNumber;
+        } catch (SQLException ex) {
+            //Logger.getLogger(DAOBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            return "";
+        }
+
+    }
 
     /**
      * This method gets DataSet
      *
      * @Author pablo and adrian
      */
-    public BaseDatos getDataSet() {
-        BaseDatos dataset = null;
+    public DataBase getDataSet() {
+        DataBase dataset = null;
         try {
             Statement stmt = conexion.createStatement();
             String sql;
             sql = "SELECT * FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" + schema + "'";
             ResultSet rs = stmt.executeQuery(sql);
+            dataset = new DataBase();
             while (rs.next()) {
-                dataset = new BaseDatos();
-                dataset.setCATALOG_NAME(rs.getString(1));
-                dataset.setSCHEMA_NAME(rs.getString(2));
-                dataset.setDEFAULT_CHARACTER_SET_NAME(rs.getString(3));
-                dataset.setDEFAULT_COLLATION_NAME(rs.getString(4));
+                
+                dataset.setCatalog_name(rs.getString(1));
+                dataset.setSchema_name(rs.getString(2));
+                dataset.setCharacter_set(rs.getString(3));
+                dataset.setCollation_name(rs.getString(4));
+                dataset.setIssued(getIssuedBD(schema));
 
             }
             ArrayList<Table> tables = getTables(schema);
@@ -153,5 +199,24 @@ public class BaseDatosDao extends AbstractDao {
             Logger.getLogger(DAOBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+    
+     public String getIssuedBD(String schema) {
+        try {
+            Statement stmt = conexion.createStatement();
+            String sql;
+            String issued = "";
+            sql = "SELECT min(create_time) FROM  INFORMATION_SCHEMA.TABLES WHERE table_schema = '"+schema+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                issued = rs.getString(1);
+            }
+            System.out.println("issued"+issued+"  "+sql);
+            return issued;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
     }
 }

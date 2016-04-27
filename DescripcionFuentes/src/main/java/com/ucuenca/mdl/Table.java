@@ -5,7 +5,7 @@
  */
 package com.ucuenca.mdl;
 
-import olderClass.Column;
+
 import java.util.ArrayList;
 
 /**
@@ -14,159 +14,244 @@ import java.util.ArrayList;
  */
 public class Table {
 
-    private String TABLE_NAME;
-    private String TABLE_TYPE;
-    private String ENGINE;
-    private String VERSION;
-    private int TABLE_ROWS;
-    private String DATA_LENGTH;
-    private String MAX_DATA_LENGTH;
-    private boolean AUTO_INCREMENT;
-    private String TABLE_COMMENT;
+    private String title;
+    private String description;
+    private String issued;//Fecha de creacion
+    private String modified;//Fecha de modificacion
+    private String license;//Links que identifiquen la licencia de la tabla o distribucion
+    private String rights;//Derechos del titular y de la distribucion
+    private String accessURL;//Una página de destino , alimentación , SPARQL endpoint u otro tipo de recurso que da acceso a la distribución del conjunto de datos
+    private boolean downloadURL;
+    private String mediaType; //example text/csv  , sql proporcionado por IANA
+    private String format; //example text/csv  , sql proporcionado por IANA
+    private String byteSize;//tamano tabla en bytes
+    private String characterSet; //Codificacion de la tabla
+    private String defaultDecimalSeparator;//El carácter utilizado para separar los números enteros de los decimales expresa como una cadena de un carácter.
+    private String defaultDigitGroupSeparator;//El carácter utilizado para separar el componente de números enteros (miles , millones , etc. ) expresado como una cadena de un carácter.
+    private String defaultLanguage;
+    private String defaultLocale;//Se trata de un conjunto de parámetros que define el país , y de cualquier preferencia variantes especiales similares a BCP 47.
+    private String defaultDecimalPositions;
+    private String newLine;//Especifica el marcador de fin de línea ( EOL ) utilizado en el archivo tal como se produce . Si ningún valor se proporciona asume el uso de un ( retorno de carro y línea) CRLF
+    private String caseQuantity;
+    private String fileName;//El nombre de archivo o URI de la tabla.
+    private String recordPerCase;//El número de registros por caso . Los registros múltiples podrían representar un caso
+    private String overrallRecordCount;//En general, el número de registros en la tabla.
+    private String programFileName;//File name or URI of the input program.
+    private String softwareType;
+    private String programVersion;
     private ArrayList<Column> columnas;
 
     public Table() {
        
     }
 
-    /**
-     * @return the TABLE_NAME
-     */
-    public String getTABLE_NAME() {
-        return TABLE_NAME;
+    public String getTitle() {
+        return title;
     }
 
-    /**
-     * @param TABLE_NAME the TABLE_NAME to set
-     */
-    public void setTABLE_NAME(String TABLE_NAME) {
-        this.TABLE_NAME = TABLE_NAME;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    /**
-     * @return the TABLE_TYPE
-     */
-    public String getTABLE_TYPE() {
-        return TABLE_TYPE;
+    public String getDescription() {
+        return description;
     }
 
-    /**
-     * @param TABLE_TYPE the TABLE_TYPE to set
-     */
-    public void setTABLE_TYPE(String TABLE_TYPE) {
-        this.TABLE_TYPE = TABLE_TYPE;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /**
-     * @return the ENGINE
-     */
-    public String getENGINE() {
-        return ENGINE;
+    public String getIssued() {
+        return issued;
     }
 
-    /**
-     * @param ENGINE the ENGINE to set
-     */
-    public void setENGINE(String ENGINE) {
-        this.ENGINE = ENGINE;
+    public void setIssued(String issued) {
+        this.issued = issued;
     }
 
-    /**
-     * @return the VERSION
-     */
-    public String getVERSION() {
-        return VERSION;
+    public String getModified() {
+        return modified;
     }
 
-    /**
-     * @param VERSION the VERSION to set
-     */
-    public void setVERSION(String VERSION) {
-        this.VERSION = VERSION;
+    public void setModified(String modified) {
+        this.modified = modified;
     }
 
-    /**
-     * @return the TABLE_ROWS
-     */
-    public int getTABLE_ROWS() {
-        return TABLE_ROWS;
+    public String getLicense() {
+        return license;
     }
 
-    /**
-     * @param TABLE_ROWS the TABLE_ROWS to set
-     */
-    public void setTABLE_ROWS(int TABLE_ROWS) {
-        this.TABLE_ROWS = TABLE_ROWS;
+    public void setLicense(String license) {
+        this.license = license;
     }
 
-    /**
-     * @return the DATA_LENGTH
-     */
-    public String getDATA_LENGTH() {
-        return DATA_LENGTH;
+    public String getRights() {
+        return rights;
     }
 
-    /**
-     * @param DATA_LENGTH the DATA_LENGTH to set
-     */
-    public void setDATA_LENGTH(String DATA_LENGTH) {
-        this.DATA_LENGTH = DATA_LENGTH;
+    public void setRights(String rights) {
+        this.rights = rights;
     }
 
-    /**
-     * @return the MAX_DATA_LENGTH
-     */
-    public String getMAX_DATA_LENGTH() {
-        return MAX_DATA_LENGTH;
+    public String getAccessURL() {
+        return accessURL;
     }
 
-    /**
-     * @param MAX_DATA_LENGTH the MAX_DATA_LENGTH to set
-     */
-    public void setMAX_DATA_LENGTH(String MAX_DATA_LENGTH) {
-        this.MAX_DATA_LENGTH = MAX_DATA_LENGTH;
+    public void setAccessURL(String accessURL) {
+        this.accessURL = accessURL;
     }
 
-    /**
-     * @return the AUTO_INCREMENT
-     */
-    public boolean isAUTO_INCREMENT() {
-        return AUTO_INCREMENT;
+    public boolean isDownloadURL() {
+        return downloadURL;
     }
 
-    /**
-     * @param AUTO_INCREMENT the AUTO_INCREMENT to set
-     */
-    public void setAUTO_INCREMENT(boolean AUTO_INCREMENT) {
-        this.AUTO_INCREMENT = AUTO_INCREMENT;
+    public void setDownloadURL(boolean downloadURL) {
+        this.downloadURL = downloadURL;
     }
 
-    /**
-     * @return the TABLE_COMMENT
-     */
-    public String getTABLE_COMMENT() {
-        return TABLE_COMMENT;
+    public String getMediaType() {
+        return mediaType;
     }
 
-    /**
-     * @param TABLE_COMMENT the TABLE_COMMENT to set
-     */
-    public void setTABLE_COMMENT(String TABLE_COMMENT) {
-        this.TABLE_COMMENT = TABLE_COMMENT;
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
     }
 
-    /**
-     * @return the columnas
-     */
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public String getByteSize() {
+        return byteSize;
+    }
+
+    public void setByteSize(String byteSize) {
+        this.byteSize = byteSize;
+    }
+
+    public String getCharacterSet() {
+        return characterSet;
+    }
+
+    public void setCharacterSet(String characterSet) {
+        this.characterSet = characterSet;
+    }
+
+    public String getDefaultDecimalSeparator() {
+        return defaultDecimalSeparator;
+    }
+
+    public void setDefaultDecimalSeparator(String defaultDecimalSeparator) {
+        this.defaultDecimalSeparator = defaultDecimalSeparator;
+    }
+
+    public String getDefaultDigitGroupSeparator() {
+        return defaultDigitGroupSeparator;
+    }
+
+    public void setDefaultDigitGroupSeparator(String defaultDigitGroupSeparator) {
+        this.defaultDigitGroupSeparator = defaultDigitGroupSeparator;
+    }
+
+    public String getDefaultLanguage() {
+        return defaultLanguage;
+    }
+
+    public void setDefaultLanguage(String defaultLanguage) {
+        this.defaultLanguage = defaultLanguage;
+    }
+
+    public String getDefaultLocale() {
+        return defaultLocale;
+    }
+
+    public void setDefaultLocale(String defaultLocale) {
+        this.defaultLocale = defaultLocale;
+    }
+
+    public String getDefaultDecimalPositions() {
+        return defaultDecimalPositions;
+    }
+
+    public void setDefaultDecimalPositions(String defaultDecimalPositions) {
+        this.defaultDecimalPositions = defaultDecimalPositions;
+    }
+
+    public String getNewLine() {
+        return newLine;
+    }
+
+    public void setNewLine(String newLine) {
+        this.newLine = newLine;
+    }
+
+    public String getCaseQuantity() {
+        return caseQuantity;
+    }
+
+    public void setCaseQuantity(String caseQuantity) {
+        this.caseQuantity = caseQuantity;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getRecordPerCase() {
+        return recordPerCase;
+    }
+
+    public void setRecordPerCase(String recordPerCase) {
+        this.recordPerCase = recordPerCase;
+    }
+
+    public String getOverrallRecordCount() {
+        return overrallRecordCount;
+    }
+
+    public void setOverrallRecordCount(String overrallRecordCount) {
+        this.overrallRecordCount = overrallRecordCount;
+    }
+
+    public String getProgramFileName() {
+        return programFileName;
+    }
+
+    public void setProgramFileName(String programFileName) {
+        this.programFileName = programFileName;
+    }
+
+    public String getSoftwareType() {
+        return softwareType;
+    }
+
+    public void setSoftwareType(String softwareType) {
+        this.softwareType = softwareType;
+    }
+
+    public String getProgramVersion() {
+        return programVersion;
+    }
+
+    public void setProgramVersion(String programVersion) {
+        this.programVersion = programVersion;
+    }
+
     public ArrayList<Column> getColumnas() {
         return columnas;
     }
 
-    /**
-     * @param columnas the columnas to set
-     */
     public void setColumnas(ArrayList<Column> columnas) {
         this.columnas = columnas;
     }
+    
 
 }

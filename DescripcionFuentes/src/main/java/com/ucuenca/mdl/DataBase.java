@@ -13,50 +13,65 @@ import java.util.ArrayList;
  */
 public class DataBase {
 
-    private String CATALOG_NAME;
-    private String SCHEMA_NAME;
+    private String catalog_name;
+    private String schema_name;
+    private String Character_set;
+    private String collation_name;
+    private String issued;
     private ArrayList<Table> tables;
 
-    /**
-     * @return the CATALOG_NAME
-     */
-    public String getCATALOG_NAME() {
-        return CATALOG_NAME;
+    public DataBase() {
     }
 
-    /**
-     * @param CATALOG_NAME the CATALOG_NAME to set
-     */
-    public void setCATALOG_NAME(String CATALOG_NAME) {
-        this.CATALOG_NAME = CATALOG_NAME;
+    public String getIssued() {
+        return issued;
     }
 
-    /**
-     * @return the SCHEMA_NAME
-     */
-    public String getSCHEMA_NAME() {
-        return SCHEMA_NAME;
+    public void setIssued(String issued) {
+        this.issued = issued;
     }
 
-    /**
-     * @param SCHEMA_NAME the SCHEMA_NAME to set
-     */
-    public void setSCHEMA_NAME(String SCHEMA_NAME) {
-        this.SCHEMA_NAME = SCHEMA_NAME;
+    
+    public String getCatalog_name() {
+        return catalog_name;
     }
 
-    /**
-     * @return the tables
-     */
+    public void setCatalog_name(String catalog_name) {
+        this.catalog_name = catalog_name;
+    }
+
+    public String getSchema_name() {
+        return schema_name;
+    }
+
+    public void setSchema_name(String schema_name) {
+        this.schema_name = schema_name;
+    }
+
+    public String getCharacter_set() {
+        return Character_set;
+    }
+
+    public void setCharacter_set(String Character_set) {
+        this.Character_set = Character_set;
+    }
+
+    public String getCollation_name() {
+        return collation_name;
+    }
+
+    public void setCollation_name(String collation_name) {
+        this.collation_name = collation_name;
+    }
+
     public ArrayList<Table> getTables() {
         return tables;
     }
 
-    /**
-     * @param tables the tables to set
-     */
     public void setTables(ArrayList<Table> tables) {
         this.tables = tables;
     }
+
+    
     
 }

@@ -20,9 +20,13 @@ import com.ucuenca.mdl.ConexionCSV;
 import com.ucuenca.mdl.ConexionEXCEL;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import org.apache.tika.exception.TikaException;
 import org.primefaces.model.UploadedFile;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -40,6 +44,7 @@ public class gestorCatalogo implements Serializable {
     private static final String REDIRECT = "?faces-redirect=true";
     private static final String DISPONIBILIDAD = "/../crearCatalogo/";
     private Catalog catalogo;
+    private Date issuedCatalogo = new Date();
     private List<Conexion> datasets = new ArrayList();
     private String tipo_conexion;
     /**
@@ -60,6 +65,11 @@ public class gestorCatalogo implements Serializable {
     private UploadedFile file;
     
     private boolean popupConexion;
+    private boolean popupResult;
+    
+    //Ontologia RDF generado
+    private String resultRDF;
+    
     
     public gestorCatalogo(Catalog catalogo, String tipo_conexion, String keywords) {
         this.catalogo = catalogo;
@@ -85,6 +95,7 @@ public class gestorCatalogo implements Serializable {
         datasets = new ArrayList<>();
         popupConexion = false;
         tipo_conexion = "BD";
+        popupResult = false;
         
         return "/" + NUEVO_CATALOGO + REDIRECT;
         
@@ -104,7 +115,7 @@ public class gestorCatalogo implements Serializable {
             conexion.setPort(puerto);
             conexion.setUsername(username);
             conexion.setPassword(password);
-            conexion.setNumTablas(conexion.getModel().getTables().size());
+            //conexion.setNumTablas(conexion.getModel().getTables().size());
             datasets.add(conexion);
             
         }
@@ -154,6 +165,31 @@ public class gestorCatalogo implements Serializable {
     public void abrirPopUpConexion() {
         tipo_conexion = "BD";
         popupConexion = true;
+        
+    }
+    
+    public void generarOntologia(){
+        
+        try {
+            System.out.println("Catalogo.."+catalogo.getTitle()+", "+catalogo.getDescription()+" "+catalogo.getIssued()+""+catalogo.getLicense());
+            catalogo.setDatasets((ArrayList<Conexion>) datasets);
+            GestorOntologia gestorOnt = new GestorOntologia();
+            resultRDF = gestorOnt.generarOntologia(catalogo);
+            System.out.println("redfggg.."+resultRDF);
+            if(resultRDF!=null && !resultRDF.isEmpty()){
+                   FacesContext context1 = FacesContext.getCurrentInstance();
+                   context1.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ontologia Generada Correctamente", ""));
+         
+                popupResult = true;
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(gestorCatalogo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(gestorCatalogo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TikaException ex) {
+            Logger.getLogger(gestorCatalogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
@@ -276,5 +312,35 @@ public class gestorCatalogo implements Serializable {
     public void setPopupConexion(boolean popupConexion) {
         this.popupConexion = popupConexion;
     }
+
+    public Date getIssuedCatalogo() {
+        return issuedCatalogo;
+    }
+
+    public void setIssuedCatalogo(Date issuedCatalogo) {
+        this.issuedCatalogo = issuedCatalogo;
+    }
+ 
+    public void mostrar(){
+        System.out.println("issued.. "+issuedCatalogo);
+    }
+
+    public String getResultRDF() {
+        return resultRDF;
+    }
+
+    public void setResultRDF(String resultRDF) {
+        this.resultRDF = resultRDF;
+    }
+
+    public boolean isPopupResult() {
+        return popupResult;
+    }
+
+    public void setPopupResult(boolean popupResult) {
+        this.popupResult = popupResult;
+    }
+    
+    
     
 }

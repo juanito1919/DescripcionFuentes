@@ -11,35 +11,18 @@ package com.ucuenca.mdl;
  */
 public class Column_CSV extends Column {
 
-    private String FORMAT;
-    private String POSITION;
+    private String columnPosition;
 
-    /**
-     * @return the FORMAT
-     */
-    public String getFORMAT() {
-        return FORMAT;
+    public Column_CSV() {
     }
 
-    /**
-     * @param FORMAT the FORMAT to set
-     */
-    public void setFORMAT(String FORMAT) {
-        this.FORMAT = FORMAT;
+    public String getColumnPosition() {
+        return columnPosition;
     }
 
-    /**
-     * @return the POSITION
-     */
-    public String getPOSITION() {
-        return POSITION;
+    public void setColumnPosition(String columnPosition) {
+        this.columnPosition = columnPosition;
     }
-
-    /**
-     * @param POSITION the POSITION to set
-     */
-    public void setPOSITION(String POSITION) {
-        this.POSITION = POSITION;
-    }
-
+    
+    
 }

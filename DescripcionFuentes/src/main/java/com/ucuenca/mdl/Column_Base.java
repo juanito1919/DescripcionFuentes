@@ -11,128 +11,63 @@ package com.ucuenca.mdl;
  */
 public class Column_Base extends Column {
 
-    private String CHARACTER_MAXIMUM_LENGTH;
-    private String CHARACTER_OCTET_LENGTH;
-    private String NUMERIC_PRECISION;
-    private String NUMERIC_SCALE;
-    private String CHARACTER_SET_NAME;
-    private String COLLATION_NAME;
-    private String COLUMN_KEY;
-    private String EXTRA;
+    private String character_set;
+    private String ordinal_position;
+    private String is_nullable;
+    private String characther_maximum_length;
+    private String column_type;
+    private String column_key;
 
     public Column_Base() {
     }
 
-    /**
-     * @return the CHARACTER_MAXIMUM_LENGTH
-     */
-    public String getCHARACTER_MAXIMUM_LENGTH() {
-        return CHARACTER_MAXIMUM_LENGTH;
+    public String getCharacter_set() {
+        return character_set;
     }
 
-    /**
-     * @param CHARACTER_MAXIMUM_LENGTH the CHARACTER_MAXIMUM_LENGTH to set
-     */
-    public void setCHARACTER_MAXIMUM_LENGTH(String CHARACTER_MAXIMUM_LENGTH) {
-        this.CHARACTER_MAXIMUM_LENGTH = CHARACTER_MAXIMUM_LENGTH;
+    public void setCharacter_set(String character_set) {
+        this.character_set = character_set;
     }
 
-    /**
-     * @return the CHARACTER_OCTET_LENGTH
-     */
-    public String getCHARACTER_OCTET_LENGTH() {
-        return CHARACTER_OCTET_LENGTH;
+    public String getOrdinal_position() {
+        return ordinal_position;
     }
 
-    /**
-     * @param CHARACTER_OCTET_LENGTH the CHARACTER_OCTET_LENGTH to set
-     */
-    public void setCHARACTER_OCTET_LENGTH(String CHARACTER_OCTET_LENGTH) {
-        this.CHARACTER_OCTET_LENGTH = CHARACTER_OCTET_LENGTH;
+    public void setOrdinal_position(String ordinal_position) {
+        this.ordinal_position = ordinal_position;
     }
 
-    /**
-     * @return the NUMERIC_PRECISION
-     */
-    public String getNUMERIC_PRECISION() {
-        return NUMERIC_PRECISION;
+    public String getIs_nullable() {
+        return is_nullable;
     }
 
-    /**
-     * @param NUMERIC_PRECISION the NUMERIC_PRECISION to set
-     */
-    public void setNUMERIC_PRECISION(String NUMERIC_PRECISION) {
-        this.NUMERIC_PRECISION = NUMERIC_PRECISION;
+    public void setIs_nullable(String is_nullable) {
+        this.is_nullable = is_nullable;
     }
 
-    /**
-     * @return the NUMERIC_SCALE
-     */
-    public String getNUMERIC_SCALE() {
-        return NUMERIC_SCALE;
+    public String getCharacther_maximum_length() {
+        return characther_maximum_length;
     }
 
-    /**
-     * @param NUMERIC_SCALE the NUMERIC_SCALE to set
-     */
-    public void setNUMERIC_SCALE(String NUMERIC_SCALE) {
-        this.NUMERIC_SCALE = NUMERIC_SCALE;
+    public void setCharacther_maximum_length(String characther_maximum_length) {
+        this.characther_maximum_length = characther_maximum_length;
     }
 
-    /**
-     * @return the CHARACTER_SET_NAME
-     */
-    public String getCHARACTER_SET_NAME() {
-        return CHARACTER_SET_NAME;
+    public String getColumn_type() {
+        return column_type;
     }
 
-    /**
-     * @param CHARACTER_SET_NAME the CHARACTER_SET_NAME to set
-     */
-    public void setCHARACTER_SET_NAME(String CHARACTER_SET_NAME) {
-        this.CHARACTER_SET_NAME = CHARACTER_SET_NAME;
+    public void setColumn_type(String column_type) {
+        this.column_type = column_type;
     }
 
-    /**
-     * @return the COLLATION_NAME
-     */
-    public String getCOLLATION_NAME() {
-        return COLLATION_NAME;
+    public String getColumn_key() {
+        return column_key;
     }
 
-    /**
-     * @param COLLATION_NAME the COLLATION_NAME to set
-     */
-    public void setCOLLATION_NAME(String COLLATION_NAME) {
-        this.COLLATION_NAME = COLLATION_NAME;
+    public void setColumn_key(String column_key) {
+        this.column_key = column_key;
     }
 
-    /**
-     * @return the COLUMN_KEY
-     */
-    public String getCOLUMN_KEY() {
-        return COLUMN_KEY;
-    }
-
-    /**
-     * @param COLUMN_KEY the COLUMN_KEY to set
-     */
-    public void setCOLUMN_KEY(String COLUMN_KEY) {
-        this.COLUMN_KEY = COLUMN_KEY;
-    }
-
-    /**
-     * @return the EXTRA
-     */
-    public String getEXTRA() {
-        return EXTRA;
-    }
-
-    /**
-     * @param EXTRA the EXTRA to set
-     */
-    public void setEXTRA(String EXTRA) {
-        this.EXTRA = EXTRA;
-    }
-
+    
 }

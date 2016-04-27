@@ -5,6 +5,12 @@
  */
 package com.ucuenca.mdl;
 
+import com.ucuenca.dao.BaseCSVDao;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.apache.tika.exception.TikaException;
+import org.xml.sax.SAXException;
+
 /**
  *
  * @author adrian
@@ -24,10 +30,10 @@ public class ConexionCSV extends Conexion {
         this.accessURL = accessURL;
     }
 
-//    public CSV getModel() throws IOException, FileNotFoundException, SAXException, TikaException{
-//        
-////        DAOCSV daoCsv = new DAOCSV();
-////        return daoCsv.getTablas(this.accessURL);
-//        
-//    }
+    public Table getModel() throws IOException, FileNotFoundException, SAXException, TikaException{
+        
+        BaseCSVDao daoCsv = new BaseCSVDao();
+        return daoCsv.getTable(this.accessURL);
+        
+    }
 }

@@ -59,8 +59,8 @@ public class BaseXMLDao extends AbstractDao {
         List<Column> columns = new ArrayList<Column>();
         for (Element col : firstItem) {
             Column column = new Column();
-            column.setCOLUMN_NAME(col.getName());
-            column.setDATA_TYPE(formatColumn(""));//pendiente
+            column.setTitle(col.getName());
+            column.setStorageFormat(formatColumn(""));//pendiente
             columns.add(column);
         }
 //         Get data and identify type data

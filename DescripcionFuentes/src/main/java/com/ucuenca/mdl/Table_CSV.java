@@ -14,86 +14,56 @@ import java.util.ArrayList;
  */
 public class Table_CSV extends Table {
 
-    private String DELIMITER;
-    private String TEXTQUALIFER;
-    private String CONSECUTIVE_DE_DELIMITER_AS_ONE;
-    private String NAME_ON_FIRST_ONE;
-    private String FIRST_DATE_LINE;
+    private String delimiter;//Separador de cada atributo
+    private String textQualifier;
+    private String consecutiveDelimiterAsOne;
+    private String nameOnFirstRow;
+    private String firstDataLine;
+
+    public Table_CSV() {
+    }
+
+    public String getDelimiter() {
+        return delimiter;
+    }
+
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    public String getTextQualifier() {
+        return textQualifier;
+    }
+
+    public void setTextQualifier(String textQualifier) {
+        this.textQualifier = textQualifier;
+    }
+
+    public String getConsecutiveDelimiterAsOne() {
+        return consecutiveDelimiterAsOne;
+    }
+
+    public void setConsecutiveDelimiterAsOne(String consecutiveDelimiterAsOne) {
+        this.consecutiveDelimiterAsOne = consecutiveDelimiterAsOne;
+    }
+
+    public String getNameOnFirstRow() {
+        return nameOnFirstRow;
+    }
+
+    public void setNameOnFirstRow(String nameOnFirstRow) {
+        this.nameOnFirstRow = nameOnFirstRow;
+    }
+
+    public String getFirstDataLine() {
+        return firstDataLine;
+    }
+
+    public void setFirstDataLine(String firstDataLine) {
+        this.firstDataLine = firstDataLine;
+    }
 
    
-    /**
-     * @return the DELIMITER
-     */
-    public String getDELIMITER() {
-        return DELIMITER;
-    }
-
-    /**
-     * @param DELIMITER the DELIMITER to set
-     */
-    public void setDELIMITER(String DELIMITER) {
-        this.DELIMITER = DELIMITER;
-    }
-
-    /**
-     * @return the TEXTQUALIFER
-     */
-    public String getTEXTQUALIFER() {
-        return TEXTQUALIFER;
-    }
-
-    /**
-     * @param TEXTQUALIFER the TEXTQUALIFER to set
-     */
-    public void setTEXTQUALIFER(String TEXTQUALIFER) {
-        this.TEXTQUALIFER = TEXTQUALIFER;
-    }
-
-    /**
-     * @return the CONSECUTIVE_DE_DELIMITER_AS_ONE
-     */
-    public String getCONSECUTIVE_DE_DELIMITER_AS_ONE() {
-        return CONSECUTIVE_DE_DELIMITER_AS_ONE;
-    }
-
-    /**
-     * @param CONSECUTIVE_DE_DELIMITER_AS_ONE the CONSECUTIVE_DE_DELIMITER_AS_ONE to set
-     */
-    public void setCONSECUTIVE_DE_DELIMITER_AS_ONE(String CONSECUTIVE_DE_DELIMITER_AS_ONE) {
-        this.CONSECUTIVE_DE_DELIMITER_AS_ONE = CONSECUTIVE_DE_DELIMITER_AS_ONE;
-    }
-
-    /**
-     * @return the NAME_ON_FIRST_ONE
-     */
-    public String getNAME_ON_FIRST_ONE() {
-        return NAME_ON_FIRST_ONE;
-    }
-
-    /**
-     * @param NAME_ON_FIRST_ONE the NAME_ON_FIRST_ONE to set
-     */
-    public void setNAME_ON_FIRST_ONE(String NAME_ON_FIRST_ONE) {
-        this.NAME_ON_FIRST_ONE = NAME_ON_FIRST_ONE;
-    }
-
-    /**
-     * @return the FIRST_DATE_LINE
-     */
-    public String getFIRST_DATE_LINE() {
-        return FIRST_DATE_LINE;
-    }
-
-    /**
-     * @param FIRST_DATE_LINE the FIRST_DATE_LINE to set
-     */
-    public void setFIRST_DATE_LINE(String FIRST_DATE_LINE) {
-        this.FIRST_DATE_LINE = FIRST_DATE_LINE;
-    }
-
-    
-    
-    
     
     
 }

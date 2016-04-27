@@ -47,7 +47,7 @@ public class BaseExcelDao extends AbstractDao {
         for (int i = 0; i < numberOfSheets; i++) {
             Table table = new Table_Excel();
             Sheet sheet = workbook.getSheetAt(i);
-            table.setTABLE_NAME(sheet.getSheetName());
+            table.setTitle(sheet.getSheetName());
             getColumn(sheet);
             listTable.add(table);
 
@@ -67,7 +67,7 @@ public class BaseExcelDao extends AbstractDao {
             fis = new FileInputStream(path);
             Workbook workbook = new XSSFWorkbook(fis);
             DataBase dataSet = new DataBase();
-            dataSet.setSCHEMA_NAME(workbook.toString());
+            dataSet.setSchema_name(workbook.toString());
             dataSet.setTables(getSheet(workbook));
             return dataSet;
         } catch (FileNotFoundException e) {
@@ -95,9 +95,9 @@ public class BaseExcelDao extends AbstractDao {
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
                 if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
-                    colum.setCOLUMN_NAME(cell.getStringCellValue());
+                    colum.setTitle(cell.getStringCellValue());
                 } else if (Cell.CELL_TYPE_NUMERIC == cell.getCellType()) {
-                    colum.setCOLUMN_NAME(cell.getStringCellValue());
+                    colum.setTitle(cell.getStringCellValue());
                 }
 
             }

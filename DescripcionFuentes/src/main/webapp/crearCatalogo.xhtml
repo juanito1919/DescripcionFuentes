@@ -18,27 +18,37 @@
             <p:outputLabel value="Nuevo Catalogo" class="BigTopic"/>
 
 
-            <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop,Wid50 columnTop">
+            <h:panelGrid id="pnlCatalogo" columns="2" style="width: 100%" columnClasses="Wid50 columnTop,Wid50 columnTop">
                 <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid50 columnTop, Wid50 columnTop">
                     <p:outputLabel value="Titulo:"/>
-                    <p:inputText value="#{gestorCatalogo.catalogo.title}"/>
+                    <p:inputText value="#{gestorCatalogo.catalogo.title}">
+                        <p:ajax process="@this"/>
+                    </p:inputText>
 
-                    <p:outputLabel value="Fecha de Creacion:"/>
-                    <p:calendar value="#{gestorCatalogo.catalogo.issued}" showOn="button" />
+                    <p:outputLabel value="Fecha de Creacionsss:"/>
+                    <p:calendar value="#{gestorCatalogo.catalogo.issued}" >
+                        <p:ajax event="dateSelect" process="@this"  listener="#{gestorCatalogo.mostrar()}" />   
+                    </p:calendar>
 
                     <p:outputLabel value="Lenguaje:"/>
-                    <p:inputText value="#{gestorCatalogo.catalogo.language}"/>
+                    <p:inputText value="#{gestorCatalogo.catalogo.language}">
+                        <p:ajax process="@this"/>
+                    </p:inputText>
 
                     <p:outputLabel value="Licencia:"/>
                     <h:panelGrid columns="1">
-                        <p:inputText value="#{gestorCatalogo.catalogo.license}" placeholder="url"/>
+                        <p:inputText value="#{gestorCatalogo.catalogo.license}" placeholder="url">
+                            <p:ajax process="@this"/>
+                        </p:inputText>
                         <p:commandLink value="Cargar Archivo"/>
                     </h:panelGrid>
                 </h:panelGrid>
 
                 <h:panelGrid columns="2" style="width: 100%" columnClasses="Wid30 columnTop,Wid70 columnTop">
                     <p:outputLabel value="Descripcion:"/>
-                    <p:inputTextarea value="#{gestorCatalogo.catalogo.title}" style="width: 90%"/>
+                    <p:inputTextarea value="#{gestorCatalogo.catalogo.description}" style="width: 90%">
+                        <p:ajax process="@this"/>
+                    </p:inputTextarea>
                 </h:panelGrid>
 
             </h:panelGrid>
@@ -56,7 +66,7 @@
                         <h:outputText value="#{item.keyword}"/>
                     </p:column>
                 </p:dataTable>
-                
+
                 <p:dataGrid  var="conex" value="#{gestorCatalogo.datasets}" columns="3" layout="grid" rendered="#{!empty gestorCatalogo.datasets}"
                              rows="3" paginator="true" id="conexiones"
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
@@ -107,19 +117,19 @@
             </p:outputPanel>
             <br/><br/>
             <p:outputPanel style="width: 100%" id="panelBotones">
-                <p:commandButton value="Generar Ontologia" disabled="#{!empty gestorCatalogo.datasets}" style="float: right"/>
+                <p:commandButton value="Generar Ontologia" update="resultDialog mensajes" actionListener="#{gestorCatalogo.generarOntologia()}" immediate="true" disabled="#{empty gestorCatalogo.datasets}" style="float: right"/>
             </p:outputPanel>
-            
+
             <div class="EmptyBox20"></div>
-            
-           
 
 
-            
+
+
+
 
         </div>
 
-        <p:dialog visible="#{gestorCatalogo.popupConexion}" id="conexionDialog" widgetVar="conexionDialog" header="Cargar Dataset" width="30%" modal="true" showEffect="clip" hideEffect="clip">
+        <p:dialog visible="#{gestorCatalogo.popupConexion}" id="conexionDialog" widgetVar="conexionDialog" header="Cargar Dataset" width="50%" modal="true" showEffect="clip" hideEffect="clip">
 
             <p:outputPanel style="width: 97%; margin: 0 auto" id="panelConexion">    
                 <p:outputPanel style="width: 100%" id="panelGeneralConexion">
@@ -213,6 +223,18 @@
 
 
 
+        <p:dialog width="70%" height="70%" visible="#{gestorCatalogo.popupResult}" id="resultDialog" widgetVar="resultDialog" header="Ontologia Generada"  modal="true" showEffect="clip" hideEffect="clip">
+
+            <p:outputPanel style="width: 97%; margin: 0 auto" id="panelResult">    
+                <p:inputTextarea   autoResize="false" readonly="true" value="#{gestorCatalogo.resultRDF}" style="width: 99%;  height: 170px;border:0px; background-color: transparent"/>
+
+            </p:outputPanel>
+
+
+        </p:dialog>
+
+
+
 
 
 
@@ -223,3 +245,4 @@
     </ui:define-->
 
 </ui:composition>
+<!-- Version Final 27/04/16-->

@@ -5,6 +5,7 @@
  */
 package com.ucuenca.mdl;
 
+import com.ucuenca.dao.BaseDatosDao;
 import olderClass.BaseDatos;
 import olderClass.DAOBaseDatos;
 
@@ -78,9 +79,9 @@ public class ConexionBD extends Conexion{
     }
     
     
-    public BaseDatos getModel(){
-        DAOBaseDatos coxBD = new DAOBaseDatos(this.host,this.port,this.schema,this.username,this.password);
-        BaseDatos dataset = coxBD.getDataSet();
+    public DataBase getModel(){
+        BaseDatosDao coxBD = new BaseDatosDao(this.host,this.port,this.schema,this.username,this.password);
+        DataBase dataset = coxBD.getDataSet();
         return dataset;
         
         
